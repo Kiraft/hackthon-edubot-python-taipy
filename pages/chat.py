@@ -8,7 +8,7 @@ import openai
 client = None
 context = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today? "
 conversation = {
-    "Conversation": ["Who are you++?", "Hi! I am GPT-4. How can I help you today?"]
+    "Conversacion": ["Quisiera aprender algo nuevo?", "Hola, Cuentame que te gustaria aprender"]
 }
 current_user_message = ""
 past_conversations = []
