@@ -19,4 +19,4 @@ routes = {
 }
     
 if __name__ == "__main__":
-    Gui(pages=routes, css_file="style.css").run(debug=True, dark_mode=True, use_reloader=True, title="Inicio de Sesión", stylekit=True,)
+    Gui(pages=routes, css_file="main.css").run(debug=True, dark_mode=True, use_reloader=True, title="Inicio de Sesión", stylekit=True,)
