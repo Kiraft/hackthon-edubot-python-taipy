@@ -34,5 +34,4 @@ def auth_google():
 login = Markdown(
 """
 <|Welcome to Taipy!|login|>
-<|Contactar Asesor|button|class_name=fullwidth plain|id=reset_app_button|on_action=auth_google|>
 """)
