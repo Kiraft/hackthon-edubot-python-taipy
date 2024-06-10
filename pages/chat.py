@@ -1,14 +1,14 @@
 from taipy.gui import Markdown
-import os
-import sys
 
 from taipy.gui import Gui, State, notify
 import openai
 
-client = None
+
+past_prompts = []
+client = openai.Client(api_key="AIzaSyAQuBWtsY3rvHn41eSFshIJLz7Q_0lhD0k")
 context = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today? "
 conversation = {
-    "Conversacion": ["Quisiera aprender algo nuevo?", "Hola, Cuentame que te gustaria aprender"]
+    "Conversacion": ["Quisiera aprender algo nuevo?", "Hola, Cuentame que te gustaria aprender", ]
 }
 current_user_message = ""
 past_conversations = []
@@ -27,7 +27,7 @@ def on_init(state: State) -> None:
     
     state.context = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today? "
     state.conversation = {
-        "Conversacion": ["Quisiera aprender algo nuevo?", "Hola, Cuentame que te gustaria aprender"]
+        "Conversacion": ["Quisiera aprender algo nuevo?", "Hola, Cuentame que te gustaria aprender", "Me gustaria apreder SprinBoot"]
     }
     state.current_user_message = ""
     state.past_conversations = []
@@ -81,8 +81,9 @@ def send_message(state: State) -> None:
     """
     notify(state, "info", "Sending message...")
     answer = update_context(state)
+    # answer = "No tengo api"
     conv = state.conversation._dict.copy()
-    conv["Conversation"] += [state.current_user_message, answer]
+    conv["Conversacion"] += [state.current_user_message, answer]
     state.current_user_message = ""
     state.conversation = conv
     notify(state, "success", "Response received!")
